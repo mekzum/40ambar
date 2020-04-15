@@ -28,4 +28,15 @@ typedef struct {
     /*2001      */ uint8_t value_4;
 } Objects_t;
 
+
+
+typedef struct {
+    uint16_t            index;
+    uint8_t             nof_SubIndex;
+    uint16_t            length;
+    uint8_t             attr;
+    void               *pData;
+}Obj_index_t;
+
+
 #endif // OBJECTS_H

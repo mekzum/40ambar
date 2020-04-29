@@ -1,5 +1,40 @@
 #include "obj_control.h"
 
+uint16_t Obj_getUint16(const uint8_t data[])
+{
+    Obj_bytes_t b;
+    b.u8[0] = data[0];
+    b.u8[1] = data[1];
+    return b.u16[0];
+}
+
+uint32_t Obj_getUint32(const uint8_t data[])
+{
+    Obj_bytes_t b;
+    b.u8[0] = data[0];
+    b.u8[1] = data[1];
+    b.u8[2] = data[2];
+    b.u8[3] = data[3];
+    return b.u32[0];
+}
+
+void Obj_setUint16(uint8_t data[], const uint16_t value)
+{
+    Obj_bytes_t b;
+    b.u16[0] = value;
+    data[0] = b.u8[0];
+    data[1] = b.u8[1];
+}
+
+void Obj_setUint32(uint8_t data[], const uint32_t value)
+{
+    Obj_bytes_t b;
+    b.u32[0] = value;
+    data[0] = b.u8[0];
+    data[1] = b.u8[1];
+    data[2] = b.u8[2];
+    data[3] = b.u8[3];
+}
 
 /**
  * @brief Find Object in Index Object Array

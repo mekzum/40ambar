@@ -14,7 +14,7 @@
  * Union for byte-extraction
  */
 typedef union{
-    uint8_t  u8[4];  /**< 8 bytes */
+    uint8_t  u8[8];  /**< 8 bytes */
     uint16_t u16[4]; /**< 4 words */
     uint32_t u32[2]; /**< 2 double words */
 }Obj_bytes_t;
@@ -100,6 +100,41 @@ Obj_Error_Code  obj_read  (Obj_control_t *control , uint16_t index, uint8_t subI
  */
 Obj_Error_Code obj_write(Obj_control_t *control , uint16_t index, uint8_t subIndex);
 
+/******************************** General Helper Functions****************/
 
+/**
+ * Helper function returns uint16 from byte array.
+ *
+ * @param data Location of source data.
+ * @return Variable of type uint16_t.
+ */
+uint16_t Obj_getUint16(const uint8_t data[]);
+
+
+/**
+ * Helper function returns uint32 from byte array.
+ *
+ * @param data Location of source data.
+ * @return Variable of type uint32_t.
+ */
+uint32_t Obj_getUint32(const uint8_t data[]);
+
+
+/**
+ * Helper function writes uint16 to byte array.
+ *
+ * @param data Location of destination data.
+ * @param value Variable of type uint16_t to be written into data.
+ */
+void Obj_setUint16(uint8_t data[], const uint16_t value);
+
+
+/**
+ * Helper function writes uint32 to byte array.
+ *
+ * @param data Location of destination data.
+ * @param value Variable of type uint32_t to be written into data.
+ */
+void Obj_setUint32(uint8_t data[], const uint32_t value);
 
 #endif // OBJ_CONTROL_H
